@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Playlist Editor</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </header>
+    <body>
+        <div class="container">
+            <div class="sidebar">
+                <a href="#">Home</a>
+                <a href="#">Now Playing</a>
+                <a href="#">Login</a>
+                <img src="images/logo.jpg" width="100" alt="An image of the company logo">
+            </div>
+            <div class="main">
+                <div id="playlistView" class="playlistView">
+                    <button>Click me to add a song!</button>
+                    <div class="playlistEntry flex-wrap flex-row">
+                        <div class="flex-wrap">
+                            <p id="entrySongName">Song Name</p>
+                            <p id="entrySongDuration">Duration: X</p>
+                        </div>
+                        <div id="entryButtons">
+                            <button id="btnDeleteEntry">X</button>
+                            <div class="playlistOrder">
+                                <button><img src="images/arrowUp.png" id="playlistEntryUp"></button>
+                                <button><img src="images/arrowDown.png" id="playlistEntryDown"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

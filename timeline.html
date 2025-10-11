@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Timeline Editor</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="js/timelineEditor.js"></script>
+    </header>
+    <body>
+        <div class="container">
+            <div class="sidebar">
+                <a href="#">Home</a>
+                <a href="#">Now Playing</a>
+                <a href="#">Login</a>
+                <img src="images/logo.jpg" width="100" alt="An image of the company logo">
+            </div>
+            <div class="main">
+                <div id="timelineView" class="timelineView">
+                    <script>fillTimelineView()</script>
+                </div>
+                <form action="">
+                    <div class="flex-wrap formGap">
+                        <div>
+                            <label for="startTime">Start Time: </label>
+                            <select id="startTime" name="startTime">
+                                <script>fillTimeDropDown("startTime")</script>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="endTime">End Time: </label>
+                            <select id="endTime" name="endTime">
+                                <script>fillTimeDropDown("endTime")</script>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex-wrap btnGap">
+                        <button>Create Timeslot</button>
+                        <button>Submit</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

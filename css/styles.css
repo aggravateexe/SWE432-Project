@@ -1,0 +1,153 @@
+button{
+    width: 300px;
+    height: 80px;
+}
+button, a{
+    display: block;
+    color: #000000;
+    background: none;
+    background-color: whitesmoke;
+    padding: 15px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 36px;
+}
+button:hover, a:hover{
+    background-color: lightgrey;
+}
+button:active, button:disabled, a:active, a:disabled{
+    background-color: grey;
+    color: white;
+}
+input{
+    font-size: 24px;
+    padding: 20px;
+}
+label{
+    display: inline-block;
+    text-align: left;
+    font-size: 24px;
+    padding: 20px;
+}
+select{
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}   
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+.flex-wrap{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    width:fit-content;
+    height: 100vh;
+    align-items: center;
+    border-right: 5px solid black;
+}
+
+.main{
+    margin: auto;
+    text-align: center;
+    font-size: 24px;
+}
+
+.formGap, .btnGap{
+    padding: 20px;
+    column-gap: 300px;
+}
+
+#loginBtns{
+    transform: translateY(160px);
+}
+
+
+.timelineView, .playlistView{
+    width: 800px;
+    height: 500px;
+
+    display: flex;
+    margin: auto;
+
+    background-color: lightgrey;
+    border: 3px solid black;
+}
+
+.timelineView{
+    flex-direction: row;
+    overflow-x: scroll;
+}
+.timeSection{
+    width: 150px;
+    height: auto;
+    
+    display: block;
+    flex-shrink: 0;
+
+    background-color: ghostwhite;
+    border: 2px dashed grey;
+}
+
+.playlistView{
+    flex-direction: column;
+    overflow-y: scroll;
+}
+.playlistView button{
+    width: inherit;
+    height: 100px;
+}
+
+.playlistEntry{
+    width: inherit;
+
+    background-color: whitesmoke;
+    border: 3px solid black;
+}
+#entrySongName{
+    display: block;
+    background-color: blue;
+
+    text-align: left;
+}
+#entrySongDuration{
+    display: block;
+    text-align: center;
+    background-color: red;
+}
+#entryButtons{
+    display: flex;
+    justify-content: flex-end;
+}
+.playlistEntry button{
+    width: 80px;
+    height: 80px;
+}
+.playlistOrder button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 80px;
+    height: 40px;
+}
+.playlistOrder img{
+    display: block;
+    width: 100%;
+    flex-shrink: 0;
+}

@@ -13,18 +13,21 @@
                 <img src="images/logo.jpg" width="100" alt="An image of the company logo">
             </div>
             <div class="main">
+                <div class="header">
+                    <button type="button" >Back</button>
+                    <p>Playlist Editor</p>
+                </div>
                 <div id="playlistView" class="playlistView">
-                    <button>Click me to add a song!</button>
-                    <div class="playlistEntry flex-wrap flex-row">
-                        <div class="flex-wrap">
-                            <p id="entrySongName">Song Name</p>
-                            <p id="entrySongDuration">Duration: X</p>
-                        </div>
+                    <button id="btnCreateEntry">Click me to add a song!</button>
+                    <div action ="" class="playlistEntry flex-wrap flex-row">
+                        <input type="text" id="entrySongName" placeholder="Enter Song Name">
+                        <p id="entrySongDuration">Duration: 00:00</p>
+                        
                         <div id="entryButtons">
-                            <button id="btnDeleteEntry">X</button>
+                            <button type="button" id="btnDeleteEntry">X</button>
                             <div class="playlistOrder">
-                                <button><img src="images/arrowUp.png" id="playlistEntryUp"></button>
-                                <button><img src="images/arrowDown.png" id="playlistEntryDown"></button>
+                                <button type="button"><img src="images/arrowUp.png" id="playlistEntryUp"></button>
+                                <button type="button"><img src="images/arrowDown.png" id="playlistEntryDown"></button>
                             </div>
                         </div>
                     </div>

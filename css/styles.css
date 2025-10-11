@@ -1,16 +1,22 @@
 button{
-    width: 300px;
-    height: 80px;
+    width: 200px;
+    height: 60px;
+    
+    font-size: 24px;
+}
+a{
+    font-size: 36px;
 }
 button, a{
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #000000;
     background: none;
     background-color: whitesmoke;
     padding: 15px;
     text-decoration: none;
     text-align: center;
-    font-size: 36px;
 }
 button:hover, a:hover{
     background-color: lightgrey;
@@ -62,8 +68,26 @@ select{
     border-right: 5px solid black;
 }
 
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    width:inherit;
+    height: 120px;
+
+    font-size: 36px;
+
+    background-color: grey;
+}
+.header > button{
+    display: none;
+    align-self: center;
+}
+
 .main{
-    margin: auto;
+    width: 100%;
+
     text-align: center;
     font-size: 24px;
 }
@@ -109,29 +133,25 @@ select{
     overflow-y: scroll;
 }
 .playlistView button{
-    width: inherit;
-    height: 100px;
+    width: 100%;
 }
 
 .playlistEntry{
-    width: inherit;
-
+    width: 100%;
+    justify-content: space-between;
     background-color: whitesmoke;
     border: 3px solid black;
 }
 #entrySongName{
     display: block;
-    background-color: blue;
-
     text-align: left;
 }
 #entrySongDuration{
     display: block;
     text-align: center;
-    background-color: red;
 }
 #entryButtons{
-    display: flex;
+    display:flex;
     justify-content: flex-end;
 }
 .playlistEntry button{

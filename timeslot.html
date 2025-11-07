@@ -1,42 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <header>
-        <title>Time Slot Editor</title>
+    <head>
+        <title>Time Slot</title>
         <link rel="stylesheet" href="css/styles.css">
-    </header>
+        <link rel="stylesheet" href="css/timeslot.css">
+        <script src="js/timeslot.js"></script>
+        <script src="js/util.js"></script>
+    </head>
     <body>
         <div class="container">
             <div class="sidebar">
-                <a href="#">Home</a>
-                <a href="#">Now Playing</a>
-                <a href="#">Login</a>
+                <nav>
+                    <a href="timeline.html">Home</a>
+                    <a href="#">Now Playing</a>
+                    <a href="login.html">Login</a>  
+                </nav>
                 <img src="images/logo.jpg" width="100" alt="An image of the company logo">
             </div>
-            <form action="" id="timeslotEditor" class="main">
-                <div class="header">
-                    <button type="button" >Back</button>
-                    <p>Time slot Editor</p>
-                </div>
-                <div class="flex-wrap formGap">
-                    <label>Start Time: 00:00 </label>
-                    <label>End Time: 00:00</label>
-                </div>
-
-                <label>Choose a DJ: </label>
-                
-                <select>
-                    <option value="DJs">List of DJs</option>
-                </select>
-
-                <div class="flex-wrap">
-                    <button type="button" id="btnEditPlaylist">Edit Playlist</button>
-                </div>
-                
-                <div class="flex-wrap btnGap">
-                    <button type="button" id="btnSaveTimeSlot">Save Changes</button>
-                    <button type="button" id="btnDeleteTimeSlot">Delete Time Slot</button>
-                </div>
-            </form>
+            <header>
+                Time Slot
+            </header>
+            <div class="task">
+                <form name="timeslotForm" action="#">
+                    <div id="timeStart">
+                        <label>Start Time: </label>
+                        <label>00 AM</label>
+                        
+                    </div>
+                    <div id="timeEnd">
+                        <label>End Time: </label>
+                        <label>00 AM</label>
+                    </div>
+                    <div id="chooseDJ">
+                        <label for="dropDJ">Choose a DJ</label>
+                        <select id="dropDJ" name="dropDJ">
+                            <option>Scooby</option>
+                            <option>Glooby</option>
+                            <option>Hoovy</option>
+                        </select>
+                    </div>
+                    <button id="btnPlaylist" type="button">Edit Playlist</button>
+                    <button id="btnSave" type="submit">Save</button>
+                    <button id="btnDelete" type="button">Delete</button>
+                </form>
+            </div>
         </div>
     </body>
 </html>

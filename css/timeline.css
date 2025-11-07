@@ -1,0 +1,62 @@
+#timelineView{
+
+    display: flex;
+    flex-direction: row;
+
+    width: 800px;
+    height: 250px;
+
+    background-color: lightgrey;
+    border: 3px solid black;
+
+    overflow-x: scroll;
+}
+.timesection{
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas:    "time"
+                            "btn";
+
+    width: 150px;
+    
+    flex-shrink: 0;
+
+    background-color: aliceblue;
+    border: 2px dashed grey;
+
+    font-size: 24px;
+
+    p{
+        grid-area: time;
+
+        display: block;
+    }
+        
+    button{
+        grid-area: btn;
+
+        width: auto;
+        height: auto;
+    }
+}
+form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:    "start end"
+                            "create submit";
+    justify-items: center;
+
+    #timeStart{
+        grid-area: start;
+    }
+    #timeEnd{
+        grid-area: end;
+    }
+    #btnCreate{
+        grid-area: create;
+    }
+    #btnSubmit{
+        grid-area: submit;
+    }
+}

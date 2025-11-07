@@ -1,173 +1,111 @@
-button{
-    width: 200px;
-    height: 60px;
-    
-    font-size: 24px;
+body{
+    overflow: hidden;
 }
-a{
-    font-size: 36px;
-}
-button, a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #000000;
-    background: none;
-    background-color: whitesmoke;
-    padding: 15px;
-    text-decoration: none;
-    text-align: center;
-}
-button:hover, a:hover{
-    background-color: lightgrey;
-}
-button:active, button:disabled, a:active, a:disabled{
-    background-color: grey;
-    color: white;
+form{
+    gap: 48px;
 }
 input{
     font-size: 24px;
-    padding: 20px;
-}
-label{
-    display: inline-block;
-    text-align: left;
-    font-size: 24px;
-    padding: 20px;
+
+    padding: 10px;
+
+    border-radius: 25px;
 }
 select{
-    width: 200px;
-    height: 40px;
-    font-size: 18px;
+    font-size: 24px;
 }
-.flex-row{
+a, button{
     display: flex;
-    flex-direction: row;
-}   
-.flex-column{
-    display: flex;
-    flex-direction: column;
-}
-.flex-wrap{
-    display: flex;
-    justify-content: center;
-}
 
+        border-radius: 15px;
+        border: 2px solid black;
+        box-shadow: 0px 2px 0px 2px rgba(128, 128, 128, 0.2);
+
+        width: 180px;
+        height: 80px;
+
+        align-items: center;
+        justify-content: center;
+
+        text-decoration: none;
+        text-align: center;
+
+        font-size: 24px;
+        color: black
+}
+a:hover, button:hover{
+    background-color: lightgray;
+}
+a:active, button:active, a:disabled, button:disabled{
+    background-color: gray;
+}
 .container{
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 6fr;
+    grid-template-columns: 1fr 6fr;
+    grid-template-areas:    "side head"
+                            "side task";
+}
+.sidebar{
+    grid-area: side;
+
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+
+    border: 2px solid black;
+
+    background: aliceblue;
+
+    nav{
+        display: flex;
+        flex-direction: column;
+
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    a{
+        width: 90%;
+    }
+    a:hover{
+        background-color: rgb(212, 225, 236);
+    }
+    a:active, a:disabled{
+        background-color: rgb(158, 180, 201);
+        color: black;
+    }
+    img{
+        align-self: center;
+        justify-self: center;
+    }
+}
+header{
+    grid-area: head;
+
     display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+
+    text-align: center;
+    font-size: 48px;
+
+    background-color: cadetblue;
 }
 
-.sidebar{
+.task{
+    grid-area: task;
+
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-
-    width:fit-content;
-    height: 100vh;
-    align-items: center;
-    border-right: 5px solid black;
-}
-
-.header{
-    display: flex;
     justify-content: center;
-    align-items: flex-start;
-
-    width:inherit;
-    height: 120px;
-
-    font-size: 36px;
-
-    background-color: grey;
-}
-.header > button{
-    display: none;
-    align-self: center;
-}
-
-.main{
-    width: 100%;
+    align-items: center;
 
     text-align: center;
     font-size: 24px;
-}
 
-.formGap, .btnGap{
-    padding: 20px;
-    column-gap: 300px;
-}
-
-#loginBtns{
-    transform: translateY(160px);
-}
-
-
-.timelineView, .playlistView{
-    width: 800px;
-    height: 500px;
-
-    display: flex;
-    margin: auto;
-
-    background-color: lightgrey;
-    border: 3px solid black;
-}
-
-.timelineView{
-    flex-direction: row;
-    overflow-x: scroll;
-}
-.timeSection{
-    width: 150px;
-    height: auto;
-    
-    display: block;
-    flex-shrink: 0;
-
-    background-color: ghostwhite;
-    border: 2px dashed grey;
-}
-
-.playlistView{
-    flex-direction: column;
-    overflow-y: scroll;
-}
-.playlistView button{
-    width: 100%;
-}
-
-.playlistEntry{
-    width: 100%;
-    justify-content: space-between;
-    background-color: whitesmoke;
-    border: 3px solid black;
-}
-#entrySongName{
-    display: block;
-    text-align: left;
-}
-#entrySongDuration{
-    display: block;
-    text-align: center;
-}
-#entryButtons{
-    display:flex;
-    justify-content: flex-end;
-}
-.playlistEntry button{
-    width: 80px;
-    height: 80px;
-}
-.playlistOrder button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 80px;
-    height: 40px;
-}
-.playlistOrder img{
-    display: block;
-    width: 100%;
-    flex-shrink: 0;
+    gap: 24px;
 }

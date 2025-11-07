@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <header>
+    <head>
         <title>Login</title>
         <link rel="stylesheet" href="css/styles.css">
-    </header>
+        <link rel="stylesheet" href="css/login.css">
+        <script scr="js/login.js"></script>
+        <script src="js/util.js"></script>
+    </head>
     <body>
         <div class="container">
             <div class="sidebar">
-                <a href="#">Home</a>
-                <a href="#">Now Playing</a>
-                <a href="#">Login</a>
+                <nav>
+                    <a href="timeline.html">Home</a>
+                    <a href="#">Now Playing</a>
+                    <a href="login.html">Login</a>
+                </nav>
                 <img src="images/logo.jpg" width="100" alt="An image of the company logo">
             </div>
-
-            <Form action="" class="main">
-                <div class="header">
-                    <button type="button" >Back</button>
-                    <p>Login</p>
-                </div>
-                <div id="loginInputs" class="flex-wrap flex-row ">
-                    <div class="flex-column">
-                        <label for="in_user">Username: </label>
-                        <label for="in_pass">Password: </label>
-                    
-                    </div>    
-                    <div class="flex-column">    
-                        <input type="text", id="in_user", name="in_user" placeholder="Enter your Username">
-                        <input type="text", id="in_pass" name="in_pass" placeholder="Enter your Password">
+            <header>
+                Login
+            </header>
+            <div class="task">
+                <form name="loginForm" action="timeline.html">
+                    <div>
+                        <label for="inUser">Username:</label>
+                        <input type="text" id="inUser" name="inUser" placeholder="Enter your Username" required>
                     </div>
-                </div>
-                <div id ="loginBtns" class="flex-wrap btnGap">
-                    <button type="button" id="btnSignup">Sign Up</button>
-                    <button type="button" id="btnLogin">Login</button>
-                </div>
-            </Form>
+                    <div>
+                        <label for="inPass">Password: </label>
+                        <input type="password" id="inPass" name="inPass" placeholder="Enter your Password" required>
+                    </div>
+                    <button id="btnLogin">Submit</button>
+                </form>
+            </div>
         </div>
     </body>
 </html>

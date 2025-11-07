@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <header>
+    <head>
         <title>Playlist Editor</title>
         <link rel="stylesheet" href="css/styles.css">
-    </header>
+        <link rel="stylesheet" href="css/playlist.css">
+        <script src="js/playlist.js"></script>
+        <script src="js/util.js"></script>
+    </head>
     <body>
         <div class="container">
             <div class="sidebar">
-                <a href="#">Home</a>
-                <a href="#">Now Playing</a>
-                <a href="#">Login</a>
+                <nav>
+                    <a href="timeline.html">Home</a>
+                    <a href="#">Now Playing</a>
+                    <a href="login.html">Login</a>
+                </nav>
                 <img src="images/logo.jpg" width="100" alt="An image of the company logo">
             </div>
-            <div class="main">
-                <div class="header">
-                    <button type="button" >Back</button>
-                    <p>Playlist Editor</p>
+            <header>
+                Playlist Editor
+            </header>
+            <div class="task">
+                <div id="playlistView">
+                    <button id="btnAddSong">Click me to add a song!</button>
+
+                    <div id="playlistEntries"></div>
                 </div>
-                <div id="playlistView" class="playlistView">
-                    <button id="btnCreateEntry">Click me to add a song!</button>
-                    <div action ="" class="playlistEntry flex-wrap flex-row">
-                        <input type="text" id="entrySongName" placeholder="Enter Song Name">
-                        <p id="entrySongDuration">Duration: 00:00</p>
-                        
-                        <div id="entryButtons">
-                            <button type="button" id="btnDeleteEntry">X</button>
-                            <div class="playlistOrder">
-                                <button type="button"><img src="images/arrowUp.png" id="playlistEntryUp"></button>
-                                <button type="button"><img src="images/arrowDown.png" id="playlistEntryDown"></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex-wrap flex-row">
-                    <button type="button">Save Changes</button>
-                </div>
+                <button id="btnSave">Save</button>
             </div>
         </div>
     </body>

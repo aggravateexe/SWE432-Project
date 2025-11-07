@@ -1,46 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <header>
+    <head>
         <title>Timeline Editor</title>
         <link rel="stylesheet" href="css/styles.css">
-        <script src="js/timelineEditor.js"></script>
-    </header>
+        <link rel="stylesheet" href="css/timeline.css">
+        <script src="js/util.js"></script>
+        <script src="js/timeline.js"></script>
+    </head>
     <body>
         <div class="container">
             <div class="sidebar">
-                <a href="#">Home</a>
-                <a href="#">Now Playing</a>
-                <a href="#">Login</a>
+                <nav>
+                    <a href="timeline.html">Home</a>
+                    <a href="#">Now Playing</a>
+                    <a href="login.html">Login</a>
+                </nav>
                 <img src="images/logo.jpg" width="100" alt="An image of the company logo">
             </div>
-            <div class="main">
-                <div class="header">
-                    <button type="button" >Back</button>
-                    <p>Timeline Editor</p>
-                </div>
-                <div id="timelineView" class="timelineView">
-                    <script>fillTimelineView()</script>
-                </div>
-                <form action="">
-                    <div class="flex-wrap formGap">
-                        <div>
-                            <label for="startTime">Start Time: </label>
-                            <select id="startTime" name="startTime">
-                                <script>fillTimeDropDown("startTime")</script>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="endTime">End Time: </label>
-                            <select id="endTime" name="endTime">
-                                <script>fillTimeDropDown("endTime")</script>
-                            </select>
-                        </div>
+            <header>
+                Timeline Editor
+            </header>
+            <div class="task">
+                <div id="timelineView">
+                    <div class="timesection">
+                        <p>12 AM</p>
+                        <button>Edit <br>"DJ NAME"</button>
                     </div>
-                    <div class="flex-wrap btnGap">
-                        <button type="button" id="btnCreateTimeslot" >Create Timeslot</button>
-                        <button type="button" id="btnSubmit">Submit</button>
+                </div>
+
+                <form name="timelineForm">
+                    <div id="timeStart">
+                        <label for="dropStart">Start Times</label>
+                        <select id="dropStart" name="dropStart"></select>
                     </div>
-                    
+                    <div id="timeEnd">
+                        <label for="dropEnd">End Times</label>
+                        <select id="dropEnd" name="dropEnd"></select>
+                    </div>
+                    <button id="btnCreate" type="submit">Create Time Slot</button>
+                    <button id="btnSave" type="button">Save</button>
                 </form>
             </div>
         </div>

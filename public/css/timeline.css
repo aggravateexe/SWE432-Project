@@ -1,0 +1,88 @@
+#timelineView{
+
+    display: flex;
+    flex-direction: row;
+
+    width: 800px;
+    height: 250px;
+
+    background-color: lightgrey;
+    border: 3px solid black;
+
+    overflow-x: scroll;
+}
+.timeslot{
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas:    "time"
+                            "btn";
+
+    width: 150px;
+    
+    flex-shrink: 0;
+
+    background-color: aliceblue;
+    border: 2px dashed grey;
+
+    font-size: 24px;
+
+    p{
+        grid-area: time;
+
+        display: block;
+    }
+        
+    button{
+        grid-area: btn;
+
+        width: auto;
+        height: auto;
+    }
+}
+#timelineForm{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:    "dj start end"
+                            ".  create save";
+    justify-items: center;
+
+    #timeStart{
+        grid-area: start;
+    }
+    #timeEnd{
+        grid-area: end;
+    }
+    #dj{
+        grid-area: dj;
+    }
+    #btnCreate{
+        grid-area: create;
+        width: 150%;
+    }
+    #btnSave{
+        grid-area: save;
+    }
+}
+#dateForm{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, fr);
+    grid-template-areas: "left date right";
+
+    justify-items: center;
+
+    #btnLeft{
+        grid-area: left;
+    }
+    #btnRight{
+        grid-area: right;
+    }
+    #btnLeft, #btnRight{
+        width: 100px;
+        height: auto;
+    }
+    #inDate{
+        grid-area: date;
+    }
+}

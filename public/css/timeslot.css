@@ -1,0 +1,35 @@
+form{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:    "date start end"
+                            "dj dj dj"
+                            "play play play"
+                            "save . delete";
+    gap: 48px;
+
+    justify-items: center;
+
+    #slotDate{
+        grid-area: date;
+    }
+
+    #start{
+        grid-area: start;
+    }
+    #end{
+        grid-area: end;
+    }
+    #chooseDJ{
+        grid-area: dj;
+    }
+    #btnPlaylist{
+        grid-area: play;
+    }
+    #btnSave{
+        grid-area: save;
+    }
+    #btnDelete{
+        grid-area: delete;
+    }
+}

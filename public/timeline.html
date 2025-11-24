@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timeline Editor</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/timeline.css">
+        <script src="js/util.js"></script>
+        <script src="js/timeline.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="sidebar">
+                <nav>
+                    <a href="timeline.html">Home</a>
+                    <a href="#">Now Playing</a>
+                    <a href="login.html">Login</a>
+                </nav>
+                <img src="images/logo.jpg" width="100" alt="An image of the company logo">
+            </div>
+            <header>
+                Timeline Editor
+            </header>
+            <div class="task">
+                <form id=dateForm name="dateForm" action=#>
+                    <button id="btnLeft" name="left">Left</button>
+                    <input id="inDate" name="date" type="date">
+                    <button id="btnRight" name="right">Right</button>
+                </form>
+
+                <div id="timelineView">
+                    <div class="timesection">
+                        <p>12 AM</p>
+                        <button>Edit <br>"DJ NAME"</button>
+                    </div>
+                </div>
+
+                <form id=timelineForm name="timelineForm" action="/api/create/timeslot" method="post">
+                    <input type="date" id="inDateHidden" name="date" style="visibility: hidden;">
+                    <div id="timeStart">
+                        <label for="startTime">Start Times:</label>
+                        <select id="dropStart" name="startTime"></select>
+                    </div>
+                    <div id="timeEnd">
+                        <label for="endTime">End Times:</label>
+                        <select id="dropEnd" name="endTime"></select>
+                    </div>
+                    <div id="dj">
+                        <label for="Djs">DJs:</label>
+                        <select id="dropDJ" name="dj"></select>
+                    </div>
+                    <button id="btnCreate" type="submit">Create Time Slot</button>
+                    <button id="btnSave" type="button" style="visibility: hidden;">Save</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

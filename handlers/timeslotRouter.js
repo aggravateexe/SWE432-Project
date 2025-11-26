@@ -120,7 +120,7 @@ const handleUpdateTimeSlot = (app, TimeSlot) => {
             startTime: req.body.startTime,
             endTime: req.body.endTime,
             dj: req.body.dj,
-            playlist: req.body.playlist,
+            playlist: req.body.playlist != undefined? JSON.parse(req.body.playlist): [],
         };
 
         console.log(aTimeSlot);

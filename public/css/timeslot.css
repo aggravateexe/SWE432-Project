@@ -5,7 +5,7 @@ form{
     grid-template-areas:    "date start end"
                             "dj dj dj"
                             "play play play"
-                            "save . delete";
+                            "delete . save";
     gap: 48px;
 
     justify-items: center;

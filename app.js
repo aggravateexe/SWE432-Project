@@ -28,6 +28,13 @@ timeslotRouter.handleTimeSlotsByID(app, TimeSlot);
 
 // Sending time slots to the database
 timeslotRouter.handleCreateTimeSlot(app, TimeSlot);
+timeslotRouter.handleCreateTimeSlotWithID(app, TimeSlot);
+
+// Updating time slots to the database
+timeslotRouter.handleUpdateTimeSlot(app, TimeSlot);
+
+// Deleting time slots from database
+timeslotRouter.handleDeleteTimeSlot(app, TimeSlot);
 
 
 // Setting up app to listen

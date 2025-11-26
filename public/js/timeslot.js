@@ -1,7 +1,14 @@
+let slotID;
+let date;
+let startTime;
+let endTime;
+let dj;
+let playlist;
+
 document.addEventListener("DOMContentLoaded", () => {
     // getting passed id
     const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
+    slotID = params.get("id");
 
     // initializing various page elements to use
     const btnPlaylist = document.getElementById("btnPlaylist");
@@ -24,8 +31,34 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Please select a DJ!");
             return false;
         }
-        alert(`Saving time slot for DJ ${dj}!`);
-        window.location.href = "timeline.html";
+
+        let formData = new FormData();
+        formData.append("date", date);
+        formData.append("startTime", startTime);
+        formData.append("endTime", endTime);
+        formData.append("dj", dj);
+        //formData.append("playlist", playlist);
+        let data = new URLSearchParams(formData);
+
+        fetch(`/api/update/timeslot/id/${slotID}`, {
+            method: "PUT",
+            headers: {"Content-Type" : "application/x-www-form-urlencoded"},
+            body: data
+        })
+        .then(resp => {
+            if(resp.ok){
+                return resp.json();
+            } else {
+                throw new Error(`${resp.status} ERROR!`);
+            }
+        })
+        .then(data => {
+            console.log(data);
+            window.location.reload();
+        })
+        .catch(error => {
+            console.log("Unable to create time slot!");
+        });
         return true;
     });
 
@@ -43,13 +76,21 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => console.log("Unable to fetch data for DJs!"));
     
     // setting up page values to the time slot with passed id.
-    fetch(`/api/timeslots/id/${id}`)
+    fetch(`/api/timeslots/id/${slotID}`)
         .then(resp => resp.json())
         .then(data => {
             console.log(data);
-            lblDate.textContent = data.date;
-            lblStartTime.textContent = data.startTime;
-            lblEndTime.textContent = data.endTime;
+
+            date = data.date;
+            startTime = data.startTime;
+            endTime = data.endTime;
+            dj = data.dj;
+            // playlist = data.playlist;
+
+            lblDate.textContent = date;
+            lblStartTime.textContent = startTime;
+            lblEndTime.textContent = endTime;
+            dropDJ.value = dj;
         })
         .catch(error => console.log("Unable to fetch timeslot!"));
 });
@@ -59,14 +100,21 @@ function onClick(event){
     console.log(`Pressed ${id} button!`);
     
     if(id == "btnPlaylist"){
-        window.location.href = "playlist.html";
+        window.location.href = `playlist.html?id=${slotID}`;
     }
     else if (id == "btnDelete"){
         let input = confirm("Are you sure you want to delete this time slot?");
 
         if(input){
             console.log("Deleting timeslot!");
-            window.location.href = "timeline.html";
+            fetch(`/api/delete/timeslot/id/${slotID}`, { method: "DELETE" })
+                .then(resp => resp.json())
+                .then(data => {
+                    console.log(data);
+                    window.location.href = "timeline.html";
+                })
+                .catch(error => console.log("Unable to delete this timeslot!"));
+
         }else{
             console.log("Canceled timeslot deletion!");
         }

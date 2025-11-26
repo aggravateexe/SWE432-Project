@@ -1,6 +1,18 @@
 const hours = getHours();
 const timeSlots = Array();
 
+class TimeSlot{
+    constructor(id, date, startTime, endTime, dj, slot, button){
+        this.id = id;
+        this.date = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.dj = dj;
+        this.slot = slot;
+        this.button = button;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () =>{
     fillTimeDropDown("dropStart");
     fillTimeDropDown("dropEnd");
@@ -60,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             return false;
         };
 
+        //let formData = new FormData(form);
         let formData = new FormData();
         formData.append("date", date);
         formData.append("startTime", startTime);
@@ -121,6 +134,7 @@ function getTimeSlotsFromDB(date){
                 let startTime = slot.startTime;
                 let endTime = slot.endTime;
                 let dj = slot.dj;
+
                 claimTimeSlots(id, date, startTime, endTime, dj);
             });
         })
@@ -149,9 +163,11 @@ function claimTimeSlots(id, date, startTime, endTime, dj = "Blank Time Slot"){
     }
 
     // Ensuring slots are not already claimed
-    let occupiedSlots = slots.filter(slot => slot.occupied);
+    let occupiedSlots = slots.filter(slot => parseInt(slot.dataset.occupied) > 0);
+
     if(occupiedSlots.length > 0){
-        let times = occupiedSlots.map(slot => slot.time).join(",");
+        let times = occupiedSlots.map(slot => slot.dataset.time);
+        times = times.join(", ");
         alert(`The Time Slot(s): ${times}, are already taken!`);
         return null;
     }
@@ -159,9 +175,42 @@ function claimTimeSlots(id, date, startTime, endTime, dj = "Blank Time Slot"){
     // Claiming slots
     let color = randomColor();
     slots.forEach(slot => {
-        slot.claim(id, color, date, startTime, endTime, dj);    
+        slot.setAttribute("data-occupied", 1);
+        slot.setAttribute("data-id", id);
+        slot.setAttribute("data-date", date);
+        slot.setAttribute("data-startTime", startTime);
+        slot.setAttribute("data-endTime", endTime);
+        slot.setAttribute("data-dj", dj);
+        let button = slot.getElementsByTagName("button")[0];
+        button.setAttribute("data-id", id);
+        button.style.backgroundColor = color;
+        button.style.visibility = "visible";
+        button.textContent = `DJ "${dj}"`;
     });
+
+    //console.log(`Added DJ ${dj} to play from ${startTime} to ${endTime}!`);
     return slots;
+}
+
+function createTimeSlot(){
+    let timeSlot = document.createElement("div");
+    timeSlot.setAttribute("class", "timeslot");
+    timeSlot.append(document.createElement("p"));
+
+    let button = document.createElement("button");
+    button.type = "button";
+    button.textContent = "Blank Time Slot"
+    button.style.visibility="hidden";
+    button.addEventListener("click", onClick);
+
+    timeSlot.append(button);
+    return timeSlot;
+}
+
+function onClick(event){
+    //Change to time slot editor and pass parameters.
+    let id = event.target.dataset.id;
+    window.location.href = `timeslot.html?id=${id}`;
 }
 
 function fillTimelineView(){
@@ -173,9 +222,18 @@ function fillTimelineView(){
     timelineView.innerHTML = "";
 
     for(let i=0; i < hours.length; i++){
-        let slot = new TimeSlot(hours[i], false);
-        timelineView.append(slot.view);
-        timeSlots.push(slot);
+        let timeSlot = createTimeSlot();
+        let time = hours[i];
+
+        timeSlot.setAttribute("data-id", i); //so we can compare times later
+        timeSlot.setAttribute("data-time", time)
+        timeSlot.setAttribute("data-occupied", 0);
+        timeSlot.setAttribute("data-dj", "");
+
+        timeSlot.childNodes[0].textContent = time;
+
+        timelineView.append(timeSlot);
+        timeSlots.push(timeSlot);
     }
 }
 

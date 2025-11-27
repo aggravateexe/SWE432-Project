@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Playlist Editor</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/playlist.css">
+        <script src="js/playlist.js"></script>
+        <script src="js/classes//PlaylistEntry.js"></script>
+        <script src="js/util.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <%- include("./partials/sidebar"); %>
+            <header><%=title %></header>
+            <div class="task">
+                <div id="playlistView">
+                    <button id="btnAddSong">Click me to add a song!</button>
+
+                    <div id="playlistEntries"></div>
+                </div>
+                <button id="btnSave">Save</button>
+            </div>
+        </div>
+    </body>
+</html>

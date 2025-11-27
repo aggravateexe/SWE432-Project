@@ -11,9 +11,50 @@ require("./handlers/dataConnector.js").connect();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({extended : true}));
 
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
+app.get(["/", "/login"], (req, resp) => {
+    const data = {
+        title: "Login"
+    }
+    resp.render("login.ejs", data);
+});
+
+app.get("/test", (req, resp) => {
+    const data = {
+        title: "This is a Test!"
+    }
+    resp.render("test.ejs", data);
+});
+
+app.get("/timeline", (req, resp) => {
+    const data = {
+        title: "Timeline Editor"
+    }
+    resp.render("timeline.ejs", data);
+});
+
+app.get("/timeslot", (req, resp) => {
+    const data = {
+        title: "Time Slot Editor",
+        id: req.query.id
+    }
+    resp.render("timeslot.ejs", data);
+});
+
+app.get("/playlist", (req, resp) => {
+    const data = {
+        title: "Playlist Editor",
+        id: req.query.id
+    }
+    resp.render("playlist.ejs", data);
+});
+/*
 app.get("/", (req, resp) => {
     resp.sendFile(path.join(__dirname, "public", "login.html"));
 });
+*/
 
 // Getting schemas
 const TimeSlot = require("./models/TimeSlot.js");

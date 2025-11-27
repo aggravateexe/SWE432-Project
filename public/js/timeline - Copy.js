@@ -210,7 +210,7 @@ function createTimeSlot(){
 function onClick(event){
     //Change to time slot editor and pass parameters.
     let id = event.target.dataset.id;
-    window.location.href = `timeslot.html?id=${id}`;
+    window.location.href = `timeslot?id=${id}`;
 }
 
 function fillTimelineView(){

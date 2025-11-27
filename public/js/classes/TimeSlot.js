@@ -43,5 +43,5 @@ class TimeSlot{
 
 function onClick(event){
     let id = event.target.dataset.id;
-    window.location.href = `timeslot.html?id=${id}`;
+    window.location.href = `/timeslot?id=${id}`;
 }

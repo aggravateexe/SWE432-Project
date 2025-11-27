@@ -100,7 +100,7 @@ function onClick(event){
     console.log(`Pressed ${id} button!`);
     
     if(id == "btnPlaylist"){
-        window.location.href = `playlist.html?id=${slotID}`;
+        window.location.href = `/playlist?id=${slotID}`;
     }
     else if (id == "btnDelete"){
         let input = confirm("Are you sure you want to delete this time slot?");

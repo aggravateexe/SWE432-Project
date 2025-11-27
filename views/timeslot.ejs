@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Time Slot</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/timeslot.css">
+        <script src="js/timeslot.js"></script>
+        <script src="js/util.js" type></script>
+    </head>
+    <body>
+        <div class="container">
+            <%- include("./partials/sidebar"); %>
+            <header><%=title %></header>
+            <div class="task">
+                <form name="timeslotForm" action="#">
+                    <div id="slotDate">
+                        <label>Date: </label>
+                        <label id="date"></label>
+
+                    </div>
+                    <div id="start">
+                        <label>Start Time: </label>
+                        <label id="startTime" name="startTime"></label>
+                        
+                    </div>
+                    <div id="end">
+                        <label>End Time: </label>
+                        <label id="endTime" name="endTime"></label>
+                    </div>
+                    <div id="chooseDJ">
+                        <label for="dj">DJ: </label>
+                        <select id="dropDJ" name="dj">
+
+                        </select>
+                    </div>
+                    <button id="btnPlaylist" type="button">Edit Playlist</button>
+                    <button id="btnSave" type="submit">Save</button>
+                    <button id="btnDelete" type="button">Delete</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
